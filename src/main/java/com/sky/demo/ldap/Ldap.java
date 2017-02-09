@@ -9,17 +9,31 @@ import java.awt.event.ActionListener;
  * Created by user on 17/2/9.
  */
 public class Ldap {
-    private JButton Sync;
     private JPanel panelMain;
+    private JButton buttonAdd;
+    private JButton buttonLast;
+    private JButton buttonConfig;
+    private JButton buttonTiming;
+    private JButton buttonNext;
+    private JButton buttonSync;
 
     public Ldap() {
-        Sync.addActionListener(new ActionListener() {
+        buttonSync.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JOptionPane.showMessageDialog(null, "Sync...");
             }
         });
+
+        buttonConfig.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+
+            }
+        });
     }
+
+
 
 
     public static void main(String[] args) {
