@@ -9,13 +9,12 @@ import java.awt.event.ActionListener;
  * Created by user on 17/2/9.
  */
 public class Ldap {
+
     private JPanel panelMain;
-    private JButton buttonAdd;
-    private JButton buttonLast;
-    private JButton buttonConfig;
-    private JButton buttonTiming;
-    private JButton buttonNext;
     private JButton buttonSync;
+    private JButton buttonConfig;
+    private JTable table1;
+    private JPanel tableTask;
 
     public Ldap() {
         buttonSync.addActionListener(new ActionListener() {
@@ -24,16 +23,7 @@ public class Ldap {
                 JOptionPane.showMessageDialog(null, "Sync...");
             }
         });
-
-        buttonConfig.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
     }
-
-
 
 
     public static void main(String[] args) {
@@ -45,4 +35,5 @@ public class Ldap {
         jFrame.pack();
         jFrame.setVisible(true);
     }
+
 }
