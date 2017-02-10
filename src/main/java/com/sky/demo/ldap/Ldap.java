@@ -11,10 +11,10 @@ import java.awt.event.ActionListener;
 public class Ldap {
 
     private JPanel panelMain;
+    private JPanel panelTop;
     private JButton buttonSync;
     private JButton buttonConfig;
-    private JTable table1;
-    private JPanel tableTask;
+    private JTable tableLdap;
 
     public Ldap() {
         buttonSync.addActionListener(new ActionListener() {
@@ -35,5 +35,4 @@ public class Ldap {
         jFrame.pack();
         jFrame.setVisible(true);
     }
-
 }
