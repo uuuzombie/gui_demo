@@ -28,10 +28,17 @@
           </component>
         </children>
       </grid>
-      <component id="908d2" class="javax.swing.JTable" binding="tableLdap">
+      <scrollpane id="650e4">
         <constraints border-constraint="Center"/>
         <properties/>
-      </component>
+        <border type="none"/>
+        <children>
+          <component id="f12ad" class="javax.swing.JTable" binding="tableLdap">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
     </children>
   </grid>
 </form>

@@ -4,10 +4,12 @@ import com.google.common.collect.Lists;
 import com.sky.demo.ldap.model.ServerConfig;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by user on 17/2/9.
@@ -21,22 +23,36 @@ public class Ldap {
     private JTable tableLdap;
 
     public Ldap() {
+
+        tableLdap.setAutoCreateRowSorter(true);
+        tableLdap.setFillsViewportHeight(true);
+        tableLdap.setPreferredScrollableViewportSize(new Dimension(550, 200));
+
+        String[] columnNames = new String[]{"ID", "NAME", "UUID", "USED", "HOST", "PORT", "TYPE", "STATUS"};
+        Object[][] cellDatas = null;
+        DefaultTableModel model = new DefaultTableModel(cellDatas, columnNames);
+        tableLdap.setModel(model);
+
+
         buttonSync.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 //Http interface
 
                 List<ServerConfig> configList = Lists.newArrayList();
+                ServerConfig config1 = new ServerConfig();
+                config1.setId(1);
+                config1.setName("config1");
+                config1.setUuid(UUID.randomUUID().toString());
+                config1.setType(1);
+                config1.setHost("192.168.100.100");
+                config1.setPort(389);
+                config1.setRootContext("root");
+                config1.setUserDn("userDn");
 
 
-                //read from file
-                List<ServerConfig> configFromFile = Lists.newArrayList();
-
-
-                //merge list
-
-                //show only unconfigured and self-config server
-
+                model.addRow(new Object[] {config1.getId(), config1.getName(), config1.getUuid(), config1.getType(), config1.getHost(),
+                        config1.getPort(), config1.getRootContext()});
 
             }
         });

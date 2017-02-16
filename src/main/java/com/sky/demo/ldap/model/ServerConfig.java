@@ -2,6 +2,7 @@ package com.sky.demo.ldap.model;
 
 
 import com.google.common.base.MoreObjects;
+import com.google.common.base.Objects;
 
 /**
  * Created by user on 17/2/14.
@@ -9,6 +10,7 @@ import com.google.common.base.MoreObjects;
 public class ServerConfig {
 
     private Integer id;
+    private String name;
     private String uuid;
     private Integer type;
     private String host;
@@ -25,6 +27,14 @@ public class ServerConfig {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String getUuid() {
@@ -93,8 +103,9 @@ public class ServerConfig {
 
     @Override
     public String toString() {
-        return MoreObjects.toStringHelper(this)
+        return Objects.toStringHelper(this)
                 .add("id", id)
+                .add("name", name)
                 .add("uuid", uuid)
                 .add("type", type)
                 .add("host", host)
