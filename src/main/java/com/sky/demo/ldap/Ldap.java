@@ -24,15 +24,7 @@ public class Ldap {
 
     public Ldap() {
 
-        tableLdap.setAutoCreateRowSorter(true);
-        tableLdap.setFillsViewportHeight(true);
-        tableLdap.setPreferredScrollableViewportSize(new Dimension(550, 200));
-
-        String[] columnNames = new String[]{"ID", "NAME", "UUID", "USED", "HOST", "PORT", "TYPE", "STATUS"};
-        Object[][] cellDatas = null;
-        DefaultTableModel model = new DefaultTableModel(cellDatas, columnNames);
-        tableLdap.setModel(model);
-
+        DefaultTableModel model = initTableModel();
 
         buttonSync.addActionListener(new ActionListener() {
             @Override
@@ -70,6 +62,17 @@ public class Ldap {
         });
     }
 
+    private DefaultTableModel initTableModel() {
+        tableLdap.setAutoCreateRowSorter(true);
+        tableLdap.setFillsViewportHeight(true);
+        tableLdap.setPreferredScrollableViewportSize(new Dimension(550, 200));
+
+        String[] columnNames = new String[]{"ID", "NAME", "UUID", "USED", "HOST", "PORT", "TYPE", "STATUS"};
+        Object[][] cellDatas = null;
+        DefaultTableModel model = new DefaultTableModel(cellDatas, columnNames);
+        tableLdap.setModel(model);
+        return model;
+    }
 
 
     public static void main(String[] args) {
