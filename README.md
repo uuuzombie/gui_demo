@@ -59,5 +59,6 @@ exe4j
 
 
 # make exe installer
-Innot
+1.Inno setup
+2.NSIS
 
