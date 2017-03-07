@@ -1,4 +1,4 @@
-package com.sky.demo.ldap;
+package com.sky.demo.ldap.ui;
 
 import com.google.common.collect.Lists;
 import com.sky.demo.ldap.model.ServerConfig;
@@ -14,7 +14,7 @@ import java.util.UUID;
 /**
  * Created by user on 17/2/9.
  */
-public class Ldap {
+public class Tool {
 
     private JPanel panelMain;
     private JPanel panelTop;
@@ -22,7 +22,7 @@ public class Ldap {
     private JButton buttonConfig;
     private JTable tableLdap;
 
-    public Ldap() {
+    public Tool() {
 
         DefaultTableModel model = initTableModel();
 
@@ -76,8 +76,8 @@ public class Ldap {
 
 
     public static void main(String[] args) {
-        JFrame jFrame = new JFrame("Ldap");
-        jFrame.setContentPane(new Ldap().panelMain);
+        JFrame jFrame = new JFrame("Tool");
+        jFrame.setContentPane(new Tool().panelMain);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         jFrame.setSize(600,500);
         jFrame.setPreferredSize(new Dimension(600,500));
