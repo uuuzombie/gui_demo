@@ -1,7 +1,12 @@
 package com.sky.demo.ldap.ui;
 
+import ch.qos.logback.classic.LoggerContext;
+import ch.qos.logback.classic.joran.JoranConfigurator;
+import ch.qos.logback.core.joran.spi.JoranException;
 import com.google.common.collect.Lists;
 import com.sky.demo.ldap.model.ServerConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -16,6 +21,8 @@ import java.util.UUID;
  */
 public class Tool {
 
+    private static final Logger logger = LoggerFactory.getLogger(Tool.class);
+
     private JPanel panelMain;
     private JPanel panelTop;
     private JButton buttonSync;
@@ -29,6 +36,7 @@ public class Tool {
         buttonSync.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                logger.info("click sync...");
                 //Http interface
 
                 List<ServerConfig> configList = Lists.newArrayList();
@@ -76,6 +84,13 @@ public class Tool {
 
 
     public static void main(String[] args) {
+
+        //load logback in jar,the log file will be empty!!
+        //java -Dlogback.configurationFile=logback.xml -jar gui_demo-jar-with-dependencies.jar
+//        loadLogConifg();
+//        logger.info("load config....");
+
+
         JFrame jFrame = new JFrame("Tool");
         jFrame.setContentPane(new Tool().panelMain);
         jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -91,5 +106,19 @@ public class Tool {
 
         jFrame.pack();
         jFrame.setVisible(true);
+    }
+
+    //jar
+    private static void loadLogConifg() {
+        LoggerContext context = (LoggerContext) LoggerFactory.getILoggerFactory();
+        JoranConfigurator configurator = new JoranConfigurator();
+        configurator.setContext(context);
+
+        context.reset();
+        try {
+            configurator.doConfigure("logback.xml");
+        } catch (JoranException e) {
+            logger.error("load log back config error", e);
+        }
     }
 }

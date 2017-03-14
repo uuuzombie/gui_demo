@@ -57,6 +57,10 @@ src/main/java/META_INF/
 # jar to exe
 exe4j
 
+set logback file
+java -Dlogback.configurationFile=logback.xml -jar gui_demo-jar-with-dependencies.jar
+
+
 
 # make exe installer
 1.Inno setup
